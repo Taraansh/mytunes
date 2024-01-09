@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}MyTunes - Home{% endblock title %}
+{% block homeactive %}active{% endblock homeactive %}
+{% block css %}
+<style>
+    .container {
+        min-height: 86.5vh;
+    }
+</style>
+{% endblock css %}
+{% block body %}
+<div class="container">
+    {% for object in objects %}
+    <div class="media my-2">
+        <li>{{object.song}}-{{object.singer}}</li>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}

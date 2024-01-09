@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}MyTunes - Home{% endblock title %}
+{% block artistactive %}active{% endblock artistactive %}
+{% block css %}
+<style>
+    .container {
+        min-height: 86.5vh;
+    }
+</style>
+{% endblock css %}
+{% block body %}
+<div class="container">
+    {% for artist in artists_with_song_count %}
+    <li>{{ artist.name }} - {{ artist.song_count }} songs</li>
+    {% endfor %}
+</div>
+{% endblock body %}
