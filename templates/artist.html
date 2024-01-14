@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}MyTunes - Home{% endblock title %}
+{% block title %}MyTunes - Artists{% endblock title %}
 {% block artistactive %}active{% endblock artistactive %}
 {% block css %}
 <style>
@@ -9,9 +9,9 @@
 </style>
 {% endblock css %}
 {% block body %}
-<div class="container">
+<div class="container d-flex align-items-center justify-content-center flex-column">
     {% for artist in artists_with_song_count %}
-    <li>{{ artist.name }} - {{ artist.song_count }} songs</li>
+    <li class="my-2">{{ artist.name }} - {{ artist.song_count }} songs</li>
     {% endfor %}
 </div>
 {% endblock body %}
