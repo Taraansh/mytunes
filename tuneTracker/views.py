@@ -1,7 +1,7 @@
 from django.db.models import Count
 from django.shortcuts import render, redirect
 from django.http import HttpResponseServerError
-from tuneTracker.models import Song, Artist
+from tuneTracker.models import Song, Artist, Contact
 
 
 def home(request):
@@ -58,3 +58,15 @@ def add_song(request):
         return HttpResponseServerError("Selected artist does not exist.")
     except Exception as e:
         return HttpResponseServerError(f"An error occurred: {str(e)}")
+
+
+def contact(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        desc = request.POST['desc']
+        ins = Contact(name=name, email=email, phone=phone, desc=desc)
+        ins.save()
+        print("written to database")
+    return render(request, 'contact.html')

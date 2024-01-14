@@ -18,3 +18,15 @@ class Song(models.Model):
 
     def __str__(self):
         return f'{self.song} by {self.singer}'
+
+
+class Contact(models.Model):
+    sno = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=40)
+    email = models.CharField(max_length=50)
+    phone = models.CharField(max_length=10)
+    desc = models.TextField()
+    time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name + " - " + self.email
